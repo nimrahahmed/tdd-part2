@@ -7,7 +7,8 @@ public class ExcerciseTestPart2 {
     	//	new TestCaseTest("testRunning").run();
     	//  new TestCaseTest("testSetUp").run();
     	//  new TestCaseTest("testTemplateMethod").run();
-    	new TestCaseTest("testFailedResult").run();
+    	//  new TestCaseTest("testFailedResult").run();
+    	 new TestCaseTest("testFailedResultFormatting").run();
     }
    
 }

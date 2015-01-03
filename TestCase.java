@@ -30,9 +30,14 @@ public class TestCase {
 		try{
 			method.invoke(this);
 		}catch(Exception e){
+			result.testFail();
+
 			e.printStackTrace();
 		}
 		tearDown();
 		return result;
 	}
+	
+	
+	
 }
