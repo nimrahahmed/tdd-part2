@@ -7,7 +7,7 @@ public class TestCaseTest extends TestCase{
 	TestCaseTest(String name) {
 		super(name);
 	}
-	public void setUp() {
+	/*public void setUp() {
 		test = new WasRun("testMethod");
 	}
 	public void testRunning() {
@@ -32,6 +32,11 @@ public class TestCaseTest extends TestCase{
 		setUp();
 		test.run();
 		assert test.wasSetUp;
-	}
+	}*/
+	public void testTemplateMethod() throws Exception {
+		 test = new WasRun("testMethod");
+		 test.run();
+		 assert test.log().equals("setUp testMethod tearDown ");
+		}
 	
 }

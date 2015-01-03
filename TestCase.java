@@ -16,11 +16,19 @@ public class TestCase {
         this.name = name;
     }
      public void run() throws SecurityException, NoSuchMethodException, IllegalArgumentException, IllegalAccessException, InvocationTargetException {
+    	 setUp();
         Method method = this.getClass().getMethod(name);
       try{
     	  method.invoke(this);
       }catch(Exception e){
     	  e.printStackTrace();
       }
+      tearDown();
+
      }
- }
+     public void setUp() {
+     }
+     public void tearDown() {
+     }
+   
+     }
