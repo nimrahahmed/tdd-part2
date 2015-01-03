@@ -22,7 +22,7 @@ public class TestCase {
 	}
 
 
-	public TestResult run() throws Exception {
+	public void run(TestResult result) throws Exception {
 		result = new TestResult();
 		result.testStart();
 		setUp();
@@ -35,7 +35,7 @@ public class TestCase {
 			e.printStackTrace();
 		}
 		tearDown();
-		return result;
+		//return result;
 	}
 	
 	
