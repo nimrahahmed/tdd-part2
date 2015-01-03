@@ -1,5 +1,4 @@
 package tddpart2;
-import java.lang.reflect.InvocationTargetException;
 
 
 public class ExcerciseTestPart2 {  
@@ -10,7 +9,6 @@ public class ExcerciseTestPart2 {
 
     }
    
-   	
 }
  
 

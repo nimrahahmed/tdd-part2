@@ -3,34 +3,35 @@ package tddpart2;
 import java.lang.reflect.InvocationTargetException;
 
 public class TestCaseTest extends TestCase{
-	
+	public WasRun test;
 	TestCaseTest(String name) {
 		super(name);
 	}
-
-	 public void testRunning() {
-		WasRun testRunning = new WasRun("testMethod");
-		//System.out.println(testRunning.wasRun);
-		 assert testRunning.wasRun;
-
+	public void setUp() {
+		test = new WasRun("testMethod");
+	}
+	public void testRunning() {
 		try {
-			testRunning.run();
-		} catch (SecurityException e) {
-			e.printStackTrace();
-		} catch (IllegalArgumentException e) {
-			e.printStackTrace();
-		} catch (NoSuchMethodException e) {
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
-			e.printStackTrace();
-		} catch (InvocationTargetException e) {
-			e.printStackTrace();
-		}
-		 assert testRunning.wasRun;
-	 }
-	 public void testSetUp() throws SecurityException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException{
-		WasRun testSetup = new WasRun("testMethod");
-		testSetup.run();
-		assert testSetup.wasSetUp;
-	 }
+		setUp();
+		test.run();
+	} catch (SecurityException e) {
+		e.printStackTrace();
+	} catch (IllegalArgumentException e) {
+		e.printStackTrace();
+	} catch (NoSuchMethodException e) {
+		e.printStackTrace();
+	} catch (IllegalAccessException e) {
+		e.printStackTrace();
+	} catch (InvocationTargetException e) {
+		e.printStackTrace();
+	}
+	assert test.wasRun;
+
+	}
+	public void testSetUp() throws SecurityException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException{
+		setUp();
+		test.run();
+		assert test.wasSetUp;
+	}
+	
 }

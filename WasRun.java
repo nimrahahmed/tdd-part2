@@ -7,13 +7,15 @@ public class WasRun extends TestCase{
 	public WasRun(String name) {
 		super(name);
 		this.wasRun = false;
-
+		this.wasSetUp = true;
+		
 	}
 	public boolean wasSetUp() {
 		return this.wasSetUp;
 	}
 
-	public void setUp() {
+	public void setUp(){ 
+		this.wasRun = false;
 		this.wasSetUp = true;
 	}
 	
