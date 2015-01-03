@@ -10,7 +10,9 @@ public class TestCaseTest extends TestCase{
 
 	 public void testRunning() {
 		WasRun testRunning = new WasRun("testMethod");
-		System.out.println(testRunning.wasRun);
+		//System.out.println(testRunning.wasRun);
+		 assert testRunning.wasRun;
+
 		try {
 			testRunning.run();
 		} catch (SecurityException e) {
@@ -24,7 +26,11 @@ public class TestCaseTest extends TestCase{
 		} catch (InvocationTargetException e) {
 			e.printStackTrace();
 		}
-		System.out.println(testRunning.wasRun);
+		 assert testRunning.wasRun;
 	 }
-	
+	 public void testSetUp() throws SecurityException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException{
+		WasRun testSetup = new WasRun("testMethod");
+		testSetup.run();
+		assert testSetup.wasSetUp;
+	 }
 }

@@ -18,6 +18,7 @@ public class TestCase {
      public void run() throws SecurityException, NoSuchMethodException, IllegalArgumentException, IllegalAccessException, InvocationTargetException {
         Method method = this.getClass().getMethod(name);
         method.invoke(this);
+        
   
      }
  }
