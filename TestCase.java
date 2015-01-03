@@ -5,30 +5,34 @@
  */
 package tddpart2;
 
-import java.lang.reflect.InvocationTargetException;
 
 import java.lang.reflect.Method;
 
 public class TestCase {
-    public String name;
+	public String name;
+	public TestResult result;
 
-    public TestCase(String name) {
-        this.name = name;
-    }
-     public void run() throws SecurityException, NoSuchMethodException, IllegalArgumentException, IllegalAccessException, InvocationTargetException {
-    	 setUp();
-        Method method = this.getClass().getMethod(name);
-      try{
-    	  method.invoke(this);
-      }catch(Exception e){
-    	  e.printStackTrace();
-      }
-      tearDown();
+	public TestCase(String name) {
+		this.name = name;
+	}
 
-     }
-     public void setUp() {
-     }
-     public void tearDown() {
-     }
-   
-     }
+	public void setUp() {
+	}
+	public void tearDown() {
+	}
+
+
+	public TestResult run() throws Exception {
+		result = new TestResult();
+		result.testStart();
+		setUp();
+		Method method = this.getClass().getMethod(name);
+		try{
+			method.invoke(this);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		tearDown();
+		return result;
+	}
+}

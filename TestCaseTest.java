@@ -1,42 +1,25 @@
 package tddpart2;
 
-import java.lang.reflect.InvocationTargetException;
 
 public class TestCaseTest extends TestCase{
 	public WasRun test;
 	TestCaseTest(String name) {
 		super(name);
 	}
-	/*public void setUp() {
-		test = new WasRun("testMethod");
-	}
-	public void testRunning() {
-		try {
-		setUp();
-		test.run();
-	} catch (SecurityException e) {
-		e.printStackTrace();
-	} catch (IllegalArgumentException e) {
-		e.printStackTrace();
-	} catch (NoSuchMethodException e) {
-		e.printStackTrace();
-	} catch (IllegalAccessException e) {
-		e.printStackTrace();
-	} catch (InvocationTargetException e) {
-		e.printStackTrace();
-	}
-	assert test.wasRun;
 
-	}
-	public void testSetUp() throws SecurityException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException{
-		setUp();
-		test.run();
-		assert test.wasSetUp;
-	}*/
 	public void testTemplateMethod() throws Exception {
-		 test = new WasRun("testMethod");
-		 test.run();
-		 assert test.log().equals("setUp testMethod tearDown ");
-		}
-	
+		test = new WasRun("testMethod");
+		test.run();
+		assert test.log().equals("setUp testMethod tearDown ");
+	}
+	public void testResult() throws Exception {
+		test = new WasRun("testMethod");
+		test.run();
+		assert result.summary().equals("1 run, 0 failed");
+	}
+	public void testFailedResult() throws Exception {
+		test = new WasRun("testBrokenMethod");
+		test.run();
+		assert result.summary().equals("1 run, 1 failed");
+	}
 }
