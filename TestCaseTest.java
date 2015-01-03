@@ -1,6 +1,6 @@
 package tddpart2;
 
-import static org.junit.Assert.assertTrue;
+import java.lang.reflect.InvocationTargetException;
 
 public class TestCaseTest extends TestCase{
 	
@@ -8,14 +8,23 @@ public class TestCaseTest extends TestCase{
 		super(name);
 	}
 
-	 public void testRunning(){
-		WasRun testRunning = new WasRun("testrunning");
-		assertTrue(testRunning.wasRun.equals("null"));
-		testRunning.run();
-		assertTrue(testRunning.wasRun.equals("true"));
-		TestCaseTest testCaseTest = new TestCaseTest("testrunning");
-		testCaseTest.run();
-		assertTrue(testRunning.wasRun.equals("true"));
-
+	 public void testRunning() {
+		WasRun testRunning = new WasRun("testMethod");
+		System.out.println(testRunning.wasRun);
+		try {
+			testRunning.run();
+		} catch (SecurityException e) {
+			e.printStackTrace();
+		} catch (IllegalArgumentException e) {
+			e.printStackTrace();
+		} catch (NoSuchMethodException e) {
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
+			e.printStackTrace();
 		}
+		System.out.println(testRunning.wasRun);
+	 }
+	
 }
